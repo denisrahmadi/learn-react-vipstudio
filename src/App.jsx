@@ -1,10 +1,10 @@
-import RegisterPage from "./pages/register";
+
 
 function App() {
     return (
         <>
             <div className="bg-slate-300 flex justify-center min-h-screen items-center">
-                <RegisterPage />
+                <h1>Home Page</h1>
             </div>
         </>
     );
