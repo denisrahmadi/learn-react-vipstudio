@@ -4,7 +4,15 @@ import PropTypes from "prop-types";
 
 const CardProduct = (props) => {
     const { children } = props;
-    return <div className="w-full max-w-sm bg-gray-800 rounded-lg border border-gray-700 shadow">{children}</div>;
+    return (
+        <>
+            <div 
+                className="w-full max-w-sm bg-gray-800 rounded-lg border border-gray-700 shadow mx-2 flex flex-col justify-between"
+            >
+                {children}
+            </div>;
+        </>
+    );
 };
 
 const Header = (props) => {
@@ -18,16 +26,12 @@ const Header = (props) => {
     );
 };
 
-const Body = () => {
+const Body = ({name, description}) => {
     return (
-        <div className="px-5 pb-5">
+        <div className="px-5 pb-5 h-full">
             <Link to="">
-                <h5 className="text-xl font-semibold tracking-tight text-white">Sepatu Converse</h5>
-                <p className="text-m text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-                    Ut cum eaque, ipsa deleniti accusamus dolore veniam fuga 
-                    harum magni libero itaque nesciunt doloribus cupiditate.
-                </p>
+                <h5 className="text-xl font-semibold tracking-tight text-white">{name}</h5>
+                <p className="text-m text-white">{description}</p>
             </Link>
         </div>
     );
@@ -52,6 +56,10 @@ CardProduct.propTypes = {
 Header.propTypes = {
     image: PropTypes.string,
 };
+Body.propTypes = {
+    name: PropTypes.string,
+    description: PropTypes.string,
+}
 Footer.propTypes = {
     price: PropTypes.string,
 };
