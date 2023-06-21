@@ -6,11 +6,7 @@ const CardProduct = (props) => {
     const { children } = props;
     return (
         <>
-            <div 
-                className="w-full max-w-sm bg-gray-800 rounded-lg border border-gray-700 shadow mx-2 flex flex-col justify-between"
-            >
-                {children}
-            </div>;
+            <div className="w-full max-w-sm bg-gray-800 rounded-lg border border-gray-700 shadow mx-2 flex flex-col justify-between">{children}</div>
         </>
     );
 };
@@ -26,7 +22,7 @@ const Header = (props) => {
     );
 };
 
-const Body = ({name, description}) => {
+const Body = ({ name, description }) => {
     return (
         <div className="px-5 pb-5 h-full">
             <Link to="">
@@ -40,7 +36,11 @@ const Body = ({name, description}) => {
 const Footer = ({ price }) => {
     return (
         <div className="flex items-center justify-between px-5 pb-5">
-            <span className="text-xl font-bold text-white">{price}</span>
+            <span 
+                className="text-xl font-bold text-white"
+            >
+                {price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}
+            </span>
             <Button classname="bg-blue-600">Add To Cart</Button>
         </div>
     );
@@ -59,7 +59,7 @@ Header.propTypes = {
 Body.propTypes = {
     name: PropTypes.string,
     description: PropTypes.string,
-}
+};
 Footer.propTypes = {
     price: PropTypes.string,
 };
